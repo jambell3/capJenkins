@@ -1,0 +1,18 @@
+job('simpleJob'){
+scm {
+git('https://github.com/jambell3/capJenkins.git')
+}
+parameters {
+stringParam('Name', 'DefaultName', 'Firstname')
+}
+steps {
+shell('echo $JOB_NAME')
+downstreamParameterized {
+trigger('paramJob') {
+parameters {
+predefinedProp('Name', '$NAME')
+}
+}
+}
+}
+}
