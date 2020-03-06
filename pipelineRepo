@@ -1,0 +1,16 @@
+stage('Clone respository') {
+node('master') {
+    git 'https://github.com/jambell3/capJenkins.git'
+    }
+}
+node {
+    stage('Create file') {
+        sh 'touch Newfile2'
+    }
+    stage('Write') {
+        sh 'echo "This is a message" > NewFile2'
+    }
+    stage('Print') {
+        sh 'cat NewFile2'
+    }
+}
