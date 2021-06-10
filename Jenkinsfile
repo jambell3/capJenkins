@@ -12,7 +12,7 @@ pipeline {
                 echo 'Goodbye World'
             }
         }
-        stage('Verify') {
+        stage('Verify CI') {
             steps {
                 echo "$GIT_BRANCH"
             }
